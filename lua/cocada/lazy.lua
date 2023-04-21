@@ -115,4 +115,10 @@ require('lazy').setup({
     },
     build = ":TSUpdate",
   },
+
+  -- Multi cursor
+  'mg979/vim-visual-multi',
+
+  -- Rust-tools
+  -- 'simrat69/rust-tools.nvim',
 }, {})
