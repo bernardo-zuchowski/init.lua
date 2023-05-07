@@ -95,10 +95,11 @@ return {
       info = 'I'
     })
 
-    lsp.setup()
-
+    -- IMPORTANT: make sure to setup neodev BEFORE lspconfig
     -- Setup neovim lua configuration
     require('neodev').setup()
+
+    lsp.setup()
 
     -- nvim-cmp setup
     local cmp = require 'cmp'
