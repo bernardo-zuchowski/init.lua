@@ -7,14 +7,17 @@ return {
   build = ":TSUpdate",
   keys = {
     -- Diagnostic keymaps
-    { '[d',        vim.diagnostic.goto_prev,  'n',  desc = "Go to previous diagnostic message" },
-    { ']d',        vim.diagnostic.goto_next,  'n',  desc = "Go to next diagnostic message" },
-    { '<leader>e', vim.diagnostic.open_float, 'n',  desc = "Open floating diagnostic message" },
-    { '<leader>q', vim.diagnostic.setloclist, 'n',  desc = "Open diagnostics list" },
+    { '[d',        vim.diagnostic.goto_prev,  'n', desc = "Go to previous diagnostic message" },
+    { ']d',        vim.diagnostic.goto_next,  'n', desc = "Go to next diagnostic message" },
+    { '<leader>e', vim.diagnostic.open_float, 'n', desc = "Open floating diagnostic message" },
+    { '<leader>q', vim.diagnostic.setloclist, 'n', desc = "Open diagnostics list" },
   },
   config = function()
     -- See `:help nvim-treesitter`
     require('nvim-treesitter.configs').setup {
+      tree_docs = {
+        enable = true,
+      },
       -- Add languages to be installed here that you want installed for treesitter
       ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'typescript', 'vimdoc', 'vim' },
 

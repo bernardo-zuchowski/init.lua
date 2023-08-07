@@ -5,16 +5,18 @@ return {
     version = '*',
     dependencies = { 'nvim-lua/plenary.nvim' },
     keys = {
-      { '<leader>?',       '<cmd>Telescope oldfiles<cr>',                      { desc = '[?] Find recently opened files' } },
-      { '<leader><space>', '<cmd>Telescope buffers<cr>',                       { desc = '[ ] Find existing buffers' } },
-      { '<leader>sf',      '<cmd>Telescope find_files<cr>',                    { desc = '[S]earch [F]iles' } },
-      { '<leader>sh',      '<cmd>Telescope help_tags<cr>',                     { desc = '[S]earch [H]elp' } },
-      { '<leader>sw',      '<cmd>Telescope grep_string<cr>',                   { desc = '[S]earch current [W]ord' } },
-      { '<leader>sg',      '<cmd>Telescope live_grep<cr>',                     { desc = '[S]earch by [G]rep' } },
-      { '<leader>sd',      '<cmd>Telescope diagnostics<cr>',                   { desc = '[S]earch [D]iagnostics' } },
-      { '<leader>ds',      '<cmd>Telescope lsp_document_symbols<cr>',          { desc = '[D]ocument [S]ymbols' } },
-      { '<leader>ws',      '<cmd>Telescope lsp_dynamic_workspace_symbols<cr>', { desc = '[W]orkspace [S]ymbols' } },
-      { 'gr',              '<cmd>Telescope lsp_references<cr>',                { desc = '[G]oto [R]eferences' } },
+      { '<leader>?',       '<cmd>Telescope oldfiles theme=ivy<cr>',                      desc =
+      '[?] Find recently opened files' },
+      { '<leader><space>', '<cmd>Telescope buffers theme=ivy<cr>',                       desc =
+      '[ ] Find existing buffers' },
+      { '<leader>sf',      '<cmd>Telescope find_files theme=ivy<cr>',                    desc = '[S]earch [F]iles' },
+      { '<leader>sh',      '<cmd>Telescope help_tags theme=ivy<cr>',                     desc = '[S]earch [H]elp' },
+      { '<leader>sw',      '<cmd>Telescope grep_string theme=ivy<cr>',                   desc = '[S]earch current [W]ord' },
+      { '<leader>sg',      '<cmd>Telescope live_grep theme=ivy<cr>',                     desc = '[S]earch by [G]rep' },
+      { '<leader>sd',      '<cmd>Telescope diagnostics theme=ivy<cr>',                   desc = '[S]earch [D]iagnostics' },
+      { '<leader>ds',      '<cmd>Telescope lsp_document_symbols theme=ivy<cr>',          desc = '[D]ocument [S]ymbols' },
+      { '<leader>ws',      '<cmd>Telescope lsp_dynamic_workspace_symbols theme=ivy<cr>', desc = '[W]orkspace [S]ymbols' },
+      { 'gr',              '<cmd>Telescope lsp_references theme=ivy<cr>',                desc = '[G]oto [R]eferences' },
     },
     config = function()
       -- See `:help telescope` and `:help telescope.setup()`

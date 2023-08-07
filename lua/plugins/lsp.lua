@@ -16,6 +16,8 @@ return {
     { 'hrsh7th/nvim-cmp' },     -- Required
     { 'hrsh7th/cmp-nvim-lsp' }, -- Required
     { 'L3MON4D3/LuaSnip' },     -- Required
+    { 'rafamadriz/friendly-snippets' },
+    { 'saadparwaiz1/cmp_luasnip' },
 
     -- Useful status updates for LSP
     -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
@@ -70,14 +72,15 @@ return {
       'rust_analyzer'
     })
 
-    lsp.format_mapping('<C-i>', {
-      servers = {
-        ['jsonls'] = { 'json' },
-        ['tsserver'] = { 'javascript', 'typescript' },
-        ['lua_ls'] = { 'lua' },
-        ['rust_analyzer'] = { 'rust' },
-      }
-    })
+    -- Has conflict with jump list keymap <C-i>
+    -- lsp.format_mapping('<C-i>', {
+    --   servers = {
+    --     ['jsonls'] = { 'json' },
+    --     ['tsserver'] = { 'javascript', 'typescript' },
+    --     ['lua_ls'] = { 'lua' },
+    --     ['rust_analyzer'] = { 'rust' },
+    --   }
+    -- })
 
     lsp.format_on_save({
       servers = {
@@ -106,6 +109,8 @@ return {
     local luasnip = require 'luasnip'
 
     luasnip.config.setup {}
+
+    require('luasnip.loaders.from_vscode').lazy_load()
 
     cmp.setup {
       snippet = {
@@ -143,6 +148,7 @@ return {
       sources = {
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
+        { name = 'vim-dadbod-completion' },
       }
     }
   end

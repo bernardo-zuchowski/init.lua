@@ -26,19 +26,44 @@ return {
   { 'numToStr/Comment.nvim', opts = {} },
   { 'tpope/vim-fugitive' },
   { 'tpope/vim-rhubarb' },
-  { 'mg979/vim-visual-multi' },
   {
-    'echasnovski/mini.pairs',
+    "tpope/vim-dadbod",
+    dependencies = {
+      "kristijanhusak/vim-dadbod-ui",
+      "kristijanhusak/vim-dadbod-completion",
+    },
+    keys = {
+      { "<leader>Dt", "<cmd>DBUIToggle<cr>",        desc = "Toggle UI" },
+      { "<leader>Df", "<cmd>DBUIFindBuffer<cr>",    desc = "Find Buffer" },
+      { "<leader>Dr", "<cmd>DBUIRenameBuffer<cr>",  desc = "Rename Buffer" },
+      { "<leader>Dq", "<cmd>DBUILastQueryInfo<cr>", desc = "Last Query Info" },
+    },
+  },
+  { 'mg979/vim-visual-multi' },
+  -- {
+  --   'echasnovski/mini.pairs',
+  --   version = false,
+  --   config = function()
+  --     require("mini.pairs").setup()
+  --   end,
+  -- },
+  {
+    'echasnovski/mini.splitjoin',
     version = false,
     config = function()
-      require("mini.pairs").setup()
+      require("mini.splitjoin").setup()
     end,
   },
   {
     'echasnovski/mini.surround',
     version = false,
     config = function()
-      require("mini.surround").setup()
+      require("mini.surround").setup({
+        custom_surroundings = {
+          ['('] = { output = { left = '(', right = ')' } },
+          ['['] = { output = { left = '[', right = ']' } },
+        }
+      })
     end,
   },
   -- {
@@ -66,10 +91,27 @@ return {
     'phaazon/hop.nvim',
     branch = 'v2', -- optional but strongly recommended
     keys = {
-      { 'f', '<cmd>HopChar1<cr>', desc = '[F]ind with Hop' }
+      { '<leader>f', '<cmd>HopChar1<cr>', desc = '[f]ind with Hop' }
     },
     config = function()
       require('hop').setup()
     end
-  }
+  },
+  {
+    'theprimeagen/harpoon',
+    keys = {
+      { '<leader>ha', function() require("harpoon.mark").add_file() end,        desc = '[h]arpoon [a]dd file' },
+      { '<leader>he', function() require("harpoon.ui").toggle_quick_menu() end, desc = '[h]arpoon toggle-menu' },
+      { '<leader>h1', function() require("harpoon.ui").nav_file(1) end,         desc = '[h]arpoon [1]' },
+      { '<leader>h2', function() require("harpoon.ui").nav_file(2) end,         desc = '[h]arpoon [2]' },
+      { '<leader>h3', function() require("harpoon.ui").nav_file(3) end,         desc = '[h]arpoon [3]' },
+      { '<leader>h4', function() require("harpoon.ui").nav_file(4) end,         desc = '[h]arpoon [4]' },
+    }
+  },
+  {
+    "mbbill/undotree",
+    keys = {
+      { '<leader>u', '<cmd>UndotreeToggle<cr>', desc = 'Toggle [u]ndo tree' }
+    }
+  },
 }
